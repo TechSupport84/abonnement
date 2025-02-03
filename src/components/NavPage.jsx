@@ -61,7 +61,7 @@ export default function NavPage() {
             <Menu as="div" className="relative ml-3">
               <div>
                 <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                  <div className="info flex flex-col text-white mr-10">
+                  <div className="info flex flex-col text-white mr-2">
                   <span>username:</span>
                   <span>ID: 8573853</span>
                   </div>
