@@ -8,8 +8,8 @@ function RetirePage() {
   return (
     <div className=''>
    <div className="header bg-gray-700 flex  flex-row justify-between items-center">
-       <BiArrowBack size={20} className='ml-10 text-white hover:text-green-500 ' onClick={()=>navigate("/")}/>
-        <h1 className='mr-20 text-white'>Retirer</h1>
+       <BiArrowBack size={20} className='ml-2 text-white hover:text-green-500 ' onClick={()=>navigate("/")}/>
+        <h1 className='mr-2 text-white'>Retirer</h1>
         </div>
    
 
