@@ -86,7 +86,8 @@ export default function NavPage() {
               </div>
 
               {/* Dropdown Items */}
-              <MenuItems className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5">
+              <MenuItems className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 z-50 ">
+
                 {profileItems.map((item) => (
                   <MenuItem key={item.id}>
                     {({ active }) => (
