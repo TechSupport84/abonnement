@@ -6,8 +6,8 @@ import SlicePage from '../components/SlicePage';
 
 function HomePage() {
   const slices = [
-    { id: 1, icons: <BiVolumeFull className="text-white text-2xl" />, detail: "Gagnez jusqu'à 100% du bénéfice de votre abonnement" },
-    { id: 2, icons: <BiVolumeFull className="text-white text-2xl" />, detail: "Invitez vos amis en partageant votre lien pour obtenir une prime salariale." },
+    { id: 1, icons: <BiVolumeFull className="text-green-500 text-2xl " />, detail: "Gagnez jusqu'à 100% du bénéfice de votre abonnement" },
+    { id: 2, icons: <BiVolumeFull className="text-2xl text-green-500" />, detail: "Invitez vos amis en partageant votre lien pour obtenir une prime salariale." },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -23,17 +23,17 @@ function HomePage() {
   return (
     <div className="mt-2">
       {/* Image Slider Section */}
-      <div className="image-pub flex justify-center items-center">
+      <div className="image-pub flex justify-center items-center mb-5">
         <SlicePage />
       </div>
 
       {/* Text Slider Section */}
-      <div className="border rounded-2xl border-gray-500 overflow-hidden w-full max-w-lg mx-auto bg-gray-800 p-4 mt-4 relative">
+      <div className="border rounded-2xl border-gray-500 overflow-hidden w-full max-w-lg mx-auto bg-gray-800 p-4 mt-4 relative mb-5">
         <div className="flex transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
           {slices.map((slice) => (
-            <div key={slice.id} className="flex items-center justify-center w-full flex-shrink-0 gap-4 text-center">
-              {slice.icons}
-              <span className="text-white">{slice.detail}</span>
+            <div key={slice.id} className="flex items-center justify-center w-full flex-shrink-0 gap-4 text-justify">
+              <span className='ml-0'>{slice.icons}</span>
+              <span className="text-white font-bold text-2xl">{slice.detail}</span>
             </div>
           ))}
         </div>
