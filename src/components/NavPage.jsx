@@ -43,7 +43,7 @@ export default function NavPage() {
           {/* Logo and Navigation */}
           <div className="flex flex-1 items-center justify-center sm:justify-start">
             <div className="flex shrink-0 items-center">
-              <img src="./logo.jpg" alt="Abonnement" className="h-8 w-auto" />
+             <span className='text-red-500 text-2xl font-bold'>A</span>
             </div>
 
             {/* Desktop Navigation */}
