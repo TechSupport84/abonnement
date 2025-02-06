@@ -6,7 +6,7 @@ function HomePage() {
   return (
     <div className=' mt-2'>
     <div className="image-pub flex  justify-center items-center">
-    <img src="./logo.jpg" alt='' className='w-300 h-100' />
+    <img src="./logo.jpg" alt='' className='w-300 h-100 rounded-2xl' />
     </div>
      <div className="border rounded-2xl  border-gray-500 flex  justify-center items-center p-2 m-2 mt-2">
         <div className="flex-row items-center m-5"></div>
