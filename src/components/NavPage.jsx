@@ -14,7 +14,7 @@ const navigation = [
 
 const profileItems = [
   { id: 1, icon: <BiDollar className='text-green-500 mr-2' />, href: '#', current: false, name: "Acheter un mineur" },
-  { id: 2, icon: <BiTrash className='text-red-500 mr-2' />, href: '#', current: false, name: "Supprimer" },
+  { id: 2, icon: <BiTrash className='text-red-500 mr-2' />, href: '/Supprimer', current: false, name: "Supprimer" },
   { id: 3, icon: <BiDetail className='text-orange-500 mr-2' />, href: '#', current: false, name: "Détails du fonds" },
   { id: 4, icon: <BiCommentDetail className='text-orange-800 mr-2' />, href: '#', current: false, name: "Détails mineurs" },
   { id: 5, icon: <BiAnalyse className='text-orange-600 mr-2' />, href: '#', current: false, name: "Meneurs" },

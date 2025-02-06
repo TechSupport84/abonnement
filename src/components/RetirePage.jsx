@@ -1,32 +1,60 @@
-import React from 'react'
-import { BiArrowBack, BiDollar, BiGlobeAlt, BiLogoGoLang, BiLogoMicrosoftTeams, BiMoney, BiPhotoAlbum, BiSolidBank, BiSolidUserVoice, BiUserPlus } from 'react-icons/bi'
-import { BsMicrosoftTeams } from 'react-icons/bs'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { BiArrowBack } from 'react-icons/bi';
+import { useNavigate } from 'react-router-dom';
 
 function RetirePage() {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
+
   return (
-    <div className=''>
-   <div className="header bg-gray-700 flex  flex-row justify-between items-center">
-       <BiArrowBack size={20} className='ml-2 text-white hover:text-green-500 ' onClick={()=>navigate("/")}/>
-        <h1 className='mr-2 text-white'>Retirer</h1>
+    <div className="bg-gray-900 min-h-screen flex flex-col justify-between">
+
+      {/* Header Section */}
+      <div className="header bg-gray-800 flex justify-between items-center p-4">
+        <BiArrowBack
+          size={20}
+          className="ml-2 text-white cursor-pointer hover:text-green-500 transition-all"
+          onClick={() => navigate("/")}
+        />
+        <h1 className="text-white text-xl font-semibold">Retirer</h1>
+        <div className="w-8" /> 
+      </div>
+      <div className="flex flex-col items-center justify-center px-4 py-6 space-y-4">
+        <h2 className="text-white text-center text-2xl font-bold">
+          Rendez-vous pour retirer de l'argent
+        </h2>
+
+        <div className="w-full max-w-md bg-white p-6 rounded-2xl shadow-lg border border-gray-300">
+          <form className="space-y-6">
+            <input
+              type="number"
+              className="w-full p-3 rounded-lg border border-gray-800 text-xl focus:outline-none focus:ring-2 focus:ring-green-500"
+              placeholder="Le minimum CFA 4000"
+            />
+            <span className="text-green-500 text-center block">
+              Equilibre CFA 0 disponible FCA 0
+            </span>
+
+            <input
+              type="password"
+              placeholder="Password"
+              className="w-full p-3 rounded-lg border border-gray-800 text-xl focus:outline-none focus:ring-2 focus:ring-gray-600"
+            />
+            <span className="text-center text-sm text-gray-500">
+              Banque 12214 1224254535
+            </span>
+
+            <button
+              type="button"
+              className="w-full py-3 bg-gray-800 text-white rounded-lg text-xl hover:bg-gray-700 transition duration-300"
+              onClick={() => navigate("/mybank")}
+            >
+              Continuer
+            </button>
+          </form>
         </div>
-         <h1 className='text-center text-white '>Rendez - vous pour retirer  de l'argent</h1>
-          <div className="border border-gray-500 p-2 flex  flex-col rounded-2xl bg-white">
-
-     <form className="border border-gray-800 flex flex-col justify-center items-center p-4 rounded-lg  space-y-3">
-     <span className='text-center'>Le minimum CFA 4000</span>
-     <span className='text-green-500 text-center'>Equilibre CFA 0 disponible FCA 0</span>
-      
-      <input  type="password"  placeholder="Password" 
-        className="border border-gray-800 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-gray-600"/>
-       <span className='text-center'>Banque   12214 1224254535 </span>
-        <button className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700" onClick={()=>navigate("/mybank")}>Continuer</button>
-       </form>
-
-          </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default RetirePage
+export default RetirePage;
