@@ -42,7 +42,6 @@ function HomePage() {
         <div className="flex transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
           {slices.map((slice) => (
             <div key={slice.id} className="flex items-center justify-start w-full flex-shrink-0 gap-6 text-justify">
-              <span className="text-green-500">{slice.icons}</span>
               <div className="text-white font-semibold text-xl md:text-2xl leading-snug">{slice.detail}</div>
             </div>
           ))}
