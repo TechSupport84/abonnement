@@ -12,11 +12,16 @@ function HomePage() {
   ]);
   
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showText, setShowText] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % slices.length);
-    }, 3000);
+      setShowText(false); // Hide text before transition
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % slices.length);
+        setShowText(true); // Show text after transition
+      }, 500); // Short delay to hide text before transitioning
+    }, 3000); // Change slice every 3 seconds
 
     return () => clearInterval(interval);
   }, [slices.length]);
@@ -24,6 +29,7 @@ function HomePage() {
   const handleCustomize = () => {
     setCustomize((prevCustomize) => !prevCustomize);
     setCurrentIndex(0);
+    setShowText(false); // Hide text when customizing
     shuffleSlices();
   };
 
@@ -38,11 +44,15 @@ function HomePage() {
         <SlicePage />
       </div>
 
-      <div className="border rounded-2xl border-gray-700 overflow-hidden w-full max-w-lg mx-auto bg-gray-900 p-6 mt-8 relative mb-8 shadow-xl">
+      <div className="border rounded-2xl border-gray-700 overflow-hidden w-full max-w-lg mx-auto bg-gray-900 p-2 mt-2 relative mb-8 shadow-xl">
         <div className="flex transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
           {slices.map((slice) => (
-            <div key={slice.id} className="flex items-center justify-start w-full flex-shrink-0 gap-6 text-justify">
-              <div className="text-white font-semibold text-xl md:text-2xl leading-snug">{slice.detail}</div>
+            <div
+              key={slice.id}
+              className={`flex items-center justify-start w-full flex-shrink-0 gap-6 text-justify p-4 transition-opacity duration-500 ${showText ? 'opacity-100' : 'opacity-0'}`}
+            >
+              <span>{slice.icons}</span>
+              <div className="text-white text-xl md:text-2xl leading-relaxed ">{slice.detail}</div>
             </div>
           ))}
         </div>
