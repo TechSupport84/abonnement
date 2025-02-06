@@ -1,25 +1,27 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { 
   BiAnalyse, BiCommentDetail, BiDetail, BiDollar, BiDownload, 
-  BiGroup, BiHome, BiSolidBank, BiTrash 
+  BiGroup, BiHome, BiLogIn, BiSolidBank, BiTrash 
 } from 'react-icons/bi';
+import { useLocation, Link } from 'react-router-dom'; // Import useLocation and Link
 
 const navigation = [
-  { name: 'Home', icon: <BiHome className="mr-2" />, href: '/', current: true },
+  { name: 'Home', icon: <BiHome className="mr-2" />, href: '/', current: false },
   { name: 'Glotte minier', href: '#', current: false },
   { name: 'Evenement', href: '#', current: false },
 ];
 
 const profileItems = [
-  { id: 1, icon: <BiDollar className='text-green-500 mr-2' />, name: "Acheter un mineur" },
-  { id: 2, icon: <BiTrash className='text-red-500 mr-2' />, name: "Supprimer" },
-  { id: 3, icon: <BiDetail className='text-orange-500 mr-2' />, name: "Détails du fonds" },
-  { id: 4, icon: <BiCommentDetail className='text-orange-800 mr-2' />, name: "Détails mineurs" },
-  { id: 5, icon: <BiAnalyse className='text-orange-600 mr-2' />, name: "Meneurs" },
-  { id: 6, icon: <BiDownload className='text-blue-500 mr-2' />, name: "Téléchargement" },
-  { id: 7, icon: <BiSolidBank className='text-green-500 mr-2' />, name: "Banques" },
-  { id: 8, icon: <BiGroup className='text-gray-700 mr-2' />, name: "Inviter" },
+  { id: 1, icon: <BiDollar className='text-green-500 mr-2' />, href: '#', current: false, name: "Acheter un mineur" },
+  { id: 2, icon: <BiTrash className='text-red-500 mr-2' />, href: '#', current: false, name: "Supprimer" },
+  { id: 3, icon: <BiDetail className='text-orange-500 mr-2' />, href: '#', current: false, name: "Détails du fonds" },
+  { id: 4, icon: <BiCommentDetail className='text-orange-800 mr-2' />, href: '#', current: false, name: "Détails mineurs" },
+  { id: 5, icon: <BiAnalyse className='text-orange-600 mr-2' />, href: '#', current: false, name: "Meneurs" },
+  { id: 6, icon: <BiDownload className='text-blue-500 mr-2' />, href: '#', current: false, name: "Téléchargement" },
+  { id: 7, icon: <BiSolidBank className='text-green-500 mr-2' />, href: '#', current: false, name: "Banques" },
+  { id: 8, icon: <BiGroup className='text-gray-700 mr-2' />, href: '#', current: false, name: "Inviter" },
+  { id: 9, icon: <BiLogIn className='text-gray-700 mr-2' />, href: '/Register', current: false, name: "Inscription | Connexion" },
 ];
 
 function classNames(...classes) {
@@ -27,6 +29,19 @@ function classNames(...classes) {
 }
 
 export default function NavPage() {
+  const location = useLocation(); // Use location to get the current URL
+
+  // Update current state of navigation items
+  const updatedNavigation = navigation.map(item => ({
+    ...item,
+    current: location.pathname === item.href, // Set current if the href matches the current URL
+  }));
+
+  const updatedProfileItems = profileItems.map(item => ({
+    ...item,
+    current: location.pathname === item.href, // Set current for profile items as well
+  }));
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -43,23 +58,23 @@ export default function NavPage() {
           {/* Logo and Navigation */}
           <div className="flex flex-1 items-center justify-center sm:justify-start">
             <div className="flex shrink-0 items-center">
-             <span className='text-red-500 text-2xl font-bold'>A</span>
+              <span className='text-red-500 text-2xl font-bold'>A</span>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
-                {navigation.map((item) => (
-                  <a
+                {updatedNavigation.map((item) => (
+                  <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.href}
                     className={classNames(
                       item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                       'flex items-center rounded-md px-3 py-2 text-sm font-medium'
                     )}
                   >
                     {item.icon} {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -67,12 +82,6 @@ export default function NavPage() {
 
           {/* Profile Section */}
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:ml-6">
-            {/* Notification Bell */}
-            <button className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white">
-              <span className="sr-only">View notifications</span>
-              <BellIcon className="h-6 w-6" />
-            </button>
-
             {/* Profile Dropdown */}
             <Menu as="div" className="relative ml-3">
               <div>
@@ -87,19 +96,18 @@ export default function NavPage() {
 
               {/* Dropdown Items */}
               <MenuItems className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 z-50 ">
-
-                {profileItems.map((item) => (
+                {updatedProfileItems.map((item) => (
                   <MenuItem key={item.id}>
                     {({ active }) => (
-                      <a
-                        href="#"
+                      <Link
+                        to={item.href}
                         className={classNames(
                           active ? 'bg-gray-100' : '',
                           'flex items-center px-4 py-2 text-sm text-gray-700'
                         )}
                       >
                         {item.icon} {item.name}
-                      </a>
+                      </Link>
                     )}
                   </MenuItem>
                 ))}
@@ -126,7 +134,7 @@ export default function NavPage() {
       {/* Mobile Menu Panel */}
       <DisclosurePanel className="sm:hidden">
         <div className="space-y-1 px-2 pt-2 pb-3">
-          {navigation.map((item) => (
+          {updatedNavigation.map((item) => (
             <DisclosureButton
               key={item.name}
               as="a"
