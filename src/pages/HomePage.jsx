@@ -31,15 +31,15 @@ function HomePage() {
       <div className="border rounded-2xl border-gray-500 overflow-hidden w-full max-w-lg mx-auto bg-gray-800 p-4 mt-4 relative mb-5">
         <div className="flex transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
           {slices.map((slice) => (
-            <div key={slice.id} className="flex items-center justify-center w-full flex-shrink-0 gap-4 text-justify">
-              <span className='ml-0'>{slice.icons}</span>
-              <span className="text-white font-bold text-2xl">{slice.detail}</span>
+            <div key={slice.id} className="flex items-center justify-between  w-full flex-shrink-0 gap-4 text-justify">
+
+              <span className="text-white font-bold text-2xl "> {slice.detail}</span>
+             
             </div>
           ))}
         </div>
       </div>
 
-      {/* Other Components */}
       <AccountPages />
       <ServicePages />
     </div>

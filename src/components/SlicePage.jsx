@@ -24,7 +24,7 @@ function SlicePage() {
           <div key={slice.id} className="w-full flex-shrink-0">
             <img src={slice.image} alt={slice.detail} className="w-full h-64 object-cover" />
             <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-center py-2">
-              {slice.detail}
+             <span className='text-green-500'>{slice.detail}</span> 
             </div>
 
           </div>
