@@ -5,7 +5,7 @@ function AccountPages() {
     const navigate = useNavigate()
   return (
     <div className='border border-gray-500 rounded-2xl flex flex-col items-justify justify-between mt-0 p-2 m-2 '>
-      <div className="flex flex-col justify-between">
+      <div className="flex flex-col justify-between bg-gray-800">
       <span className='text-green-500'>Actif total :  CFA  53535</span>
       <span className='text-green-500'>Montant  disponible : 53535</span>
       <span className='text-green-500'>Montant  de la  reservation CFA </span>
