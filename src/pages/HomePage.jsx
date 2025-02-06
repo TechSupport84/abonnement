@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BiVolumeFull } from 'react-icons/bi';
+import { BiGroup, BiVolumeFull } from 'react-icons/bi';
 import AccountPages from '../components/AccountPages';
 import ServicePages from '../utils/ServicePages';
 import SlicePage from '../components/SlicePage';
@@ -8,7 +8,7 @@ function HomePage() {
   const [customize, setCustomize] = useState(false);
   const [slices, setSlices] = useState([
     { id: 1, icons: <BiVolumeFull className="text-green-500 text-3xl" />, detail: "Gagnez jusqu'à 100% du bénéfice de votre abonnement" },
-    { id: 2, icons: <BiVolumeFull className="text-3xl text-green-500" />, detail: "Invitez vos amis en partageant votre lien pour obtenir une prime salariale." },
+    { id: 2, icons: <BiGroup className="text-3xl text-green-500" />, detail: "Invitez vos amis en partageant votre lien pour obtenir une prime salariale." },
   ]);
   
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,12 +16,12 @@ function HomePage() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setShowText(false); // Hide text before transition
+      setShowText(false); 
       setTimeout(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % slices.length);
-        setShowText(true); // Show text after transition
-      }, 500); // Short delay to hide text before transitioning
-    }, 3000); // Change slice every 3 seconds
+        setShowText(true);
+      }, 500); 
+    }, 3000); 
 
     return () => clearInterval(interval);
   }, [slices.length]);
