@@ -50,7 +50,9 @@ function RetirePage() {
             >
               Continuer
             </button>
+
           </form>
+          <span className='text-gray-700'>Frais </span>
         </div>
       </div>
     </div>
