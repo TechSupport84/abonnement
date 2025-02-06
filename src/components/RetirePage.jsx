@@ -21,7 +21,7 @@ function RetirePage() {
       <input  type="password"  placeholder="Password" 
         className="border border-gray-800 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-gray-600"/>
        <span className='text-center'>Banque   12214 1224254535 </span>
-        <button className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700">Continuer</button>
+        <button className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700" onClick={()=>navigate("/mybank")}>Continuer</button>
        </form>
 
           </div>
