@@ -58,12 +58,12 @@ function HomePage() {
         </div>
 
         <div className="absolute bottom-6 right-6">
-          <button
+          <span
             onClick={handleCustomize}
-            className="text-white bg-green-500 p-4 rounded-full focus:outline-none hover:bg-green-600 transform hover:scale-110 transition duration-300"
+            className="text-white bg-green-500 cursor-pointer p-2 rounded-full focus:outline-none hover:bg-green-600 transform hover:scale-110 transition duration-300"
           >
             {customize ? '>' : '>'}
-          </button>
+          </span>
         </div>
       </div>
 
